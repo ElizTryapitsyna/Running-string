@@ -2,14 +2,13 @@ from django.http import HttpResponse
 from django.shortcuts import render
 from django.views.generic import ListView
 
-from utils.utils import create_video_opencv, convert_to_h264
+from utils.utils import create_video_opencv
 from video.models import Video
 
 
 def index(request):
     message = str(request.GET.get('message', ''))
     result = create_video_opencv(message)
-    # convert_to_h264(f'media/{result["path"]}')
     new_video = Video(title=result['title'], message=message, video=result['path'])
     new_video.save()
     context = {'object': new_video}
