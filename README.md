@@ -14,4 +14,4 @@ Test case with running string on python and django
 Создание суперпользователя:
    python manage.py createsuperuser
 Пример создания видео:
-    http://127.0.0.1:8000?message=Приыет, мир
+    http://127.0.0.1:8000?message=Привет, мир
